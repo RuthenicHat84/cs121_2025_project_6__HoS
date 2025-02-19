@@ -23,7 +23,10 @@ class Student{
         ~Student();
         void init(studentString);
         void printStudent();
+        std::string getFirst();
+        std::string getLast();
         std::string getLastFirst();
+        std::string getCredits();
 }; // end of Student Class
 
 #endif // end student.h
