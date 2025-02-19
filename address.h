@@ -14,7 +14,7 @@ class Address{
 
     public:
         Address();
-        void init(street, city, state, zip);
+        void init(std::string street, std::string city, std::string state, std::string zip);
         void printAddress();
 }; // end of Address Class
 
