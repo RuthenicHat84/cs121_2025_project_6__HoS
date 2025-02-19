@@ -12,7 +12,7 @@ class Date{
         int year;
     public:
         Date();
-        void init(dateString);
+        void init(std::string dateString);
         void printDate();
 
 
