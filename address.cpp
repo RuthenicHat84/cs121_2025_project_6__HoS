@@ -10,7 +10,7 @@ Address::Address(){
     Address::zip = "";
 } // end constructor
 
-void Address::init(std::string street, std::city city, std::state state, std::zip zip){
+void Address::init(std::string street, std::string city, std::string state, std::string zip){
     Address::street = street;
     Address::city = city;
     Address::state = state;
@@ -18,8 +18,8 @@ void Address::init(std::string street, std::city city, std::state state, std::zi
 } // end init constructor
 
 void Address::printAddress(){
-    std::cout << street << std::endl;
-    std::cout << city << std::endl;
-    std::cout << state << std::endl;
-    std::cout << zip << std::endl;
+    std::cout << "Street: " << street << std::endl;
+    std::cout << "City: " << city << std::endl;
+    std::cout << "State: " << state << std::endl;
+    std::cout << "Zip: " << zip << std::endl;
 } // end printAddress

@@ -2,9 +2,10 @@
 #include "address.h"
 #include <iostream>
 
-main(){
-    std::cout << "test" << endl;
+int main(){
+    std::cout << "test" << std::endl;
     Address a;
-    a.init(Bartley Drive, Noblesville, Indiana, 46062);
+    a.init("Bartley Drive", "Noblesville", "Indiana", "46062");
     a.printAddress();
+    return 0;
 } // end main
