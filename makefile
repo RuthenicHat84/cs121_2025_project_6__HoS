@@ -7,7 +7,7 @@ address.o: address.cpp
 date.o: date.cpp
 	g++ -g -c date.cpp
 
-main.o: address.o main.cpp
+main.o: address.h date.h main.cpp
 	g++ -g -c main.cpp
 
 clean: 

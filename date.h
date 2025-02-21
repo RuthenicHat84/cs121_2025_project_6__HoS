@@ -1,11 +1,10 @@
-//start date.h
+//date.h
 #ifndef DATE_H_EXISTS
 #define DATE_H_EXISTS
 
-#include <iostream>
-#include <sstream>
+#include <string>
 class Date{
-    protected: 
+    protected:
         std::string dateString;
         int month;
         int day;
@@ -15,8 +14,5 @@ class Date{
         void init(std::string dateString);
         void printDate();
 
-
-
-}; // end of Date Class
-
-#endif // end date.h
+}; // end Date Class
+#endif
