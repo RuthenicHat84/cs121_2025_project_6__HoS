@@ -1,5 +1,5 @@
 HoS: address.o date.o main.o
-	g++ -g address.o main.o -o HoS
+	g++ -g address.o date.o main.o -o HoS
 
 address.o: address.cpp
 	g++ -g -c address.cpp

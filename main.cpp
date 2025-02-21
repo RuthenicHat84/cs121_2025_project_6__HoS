@@ -12,6 +12,7 @@ int main(){
     Date b;
     b.init("09/26/2003");
     b.printDate();
-
+    b.init("11/20/1995");
+    b.printDate();
     return 0;
 } // end main
