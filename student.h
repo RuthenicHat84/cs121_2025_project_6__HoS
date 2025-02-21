@@ -1,32 +1,31 @@
-// start student.h
+// student.h
 #ifndef STUDENT_H_EXISTS
 #define STUDENT_H_EXISTS
 
-#include <iostream>
-#include address.h 
-#include date.h 
+#include "address.h"
+#include "date.h"
 
 
 class Student{
     protected:
         std::string studentString;
         std::string firstName;
-        std::string firstName;
+        std::string lastName;
         int credits;
 
-        Date::* dob;
-        Date::* gradDate;
-        Address::* Address;
+        Date* birthday;
+        Date* gradDate;
+        Address* address;
 
     public:
         Student();
         ~Student();
-        void init(studentString);
+        void init(std::string studentString);
         void printStudent();
+        std::string getLastFirst();
         std::string getFirst();
         std::string getLast();
-        std::string getLastFirst();
         std::string getCredits();
 }; // end of Student Class
 
-#endif // end student.h
+#endif

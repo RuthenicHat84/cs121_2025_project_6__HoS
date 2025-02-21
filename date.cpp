@@ -36,7 +36,7 @@ void Date::init(std::string dateString){
 
     ss.clear();
     ss.str("");
-} // end init
+} // end init constructor
 
 void Date::printDate(){
     std::string MoY[] = {"NULL", "January", "February", "March", 

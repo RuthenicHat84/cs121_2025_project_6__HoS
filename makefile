@@ -1,5 +1,5 @@
-HoS: address.o date.o main.o
-	g++ -g address.o date.o main.o -o HoS
+HoS: address.o date.o student.o main.o
+	g++ -g address.o date.o student.o main.o -o HoS
 
 address.o: address.cpp
 	g++ -g -c address.cpp
@@ -7,7 +7,10 @@ address.o: address.cpp
 date.o: date.cpp
 	g++ -g -c date.cpp
 
-main.o: address.h date.h main.cpp
+student.o: student.cpp
+	g++ -g -c student.cpp
+
+main.o: address.h date.h student.h main.cpp
 	g++ -g -c main.cpp
 
 clean: 
