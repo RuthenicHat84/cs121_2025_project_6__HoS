@@ -27,7 +27,7 @@ void Student::init(std::string studentString){
 	std::string city;
 	std::string state;
 	std::string zip;
-	std::string sBirth;
+	std::string sBday;
 	std::string sGrad;
 	std::string sCredits;
 	
@@ -40,7 +40,7 @@ void Student::init(std::string studentString){
 	getline(ss, city, ',');
 	getline(ss, state, ',');
 	getline(ss, zip, ',');
-	getline(ss, sBirth, ',');
+	getline(ss, sBday, ',');
 	getline(ss, sGrad, ',');
 	getline(ss, sCredits);
 
@@ -49,11 +49,11 @@ void Student::init(std::string studentString){
 	
 	Student::address->init(street, city, state, zip);
 	
-    Student::birthday->init(sBirth);
+	Student::birthday->init(sBday);
 	Student::gradDate->init(sGrad);
 
     ss << sCredits;
-	ss >> credits;
+	ss >> Student::credits;
 
 } // end init
 
