@@ -1,5 +1,6 @@
 // main.cpp
 #include "address.h"
+#include "date.h"
 #include <iostream>
 
 int main(){
@@ -7,5 +8,10 @@ int main(){
     Address a;
     a.init("Bartley Drive", "Noblesville", "Indiana", "46062");
     a.printAddress();
+    
+    Date b;
+    b.init("09/26/2003");
+    b.printDate();
+
     return 0;
 } // end main
