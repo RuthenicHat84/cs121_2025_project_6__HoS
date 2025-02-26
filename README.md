@@ -62,3 +62,17 @@ void Student::init(studentString){
 } // end Student::init
 
 ```
+
+## Main()
+* creates UI for users to interact with, and returns the value back to main.
+```
+
+Menu(){
+
+create string input
+print list of commands
+get input from user
+return input
+
+}
+```
