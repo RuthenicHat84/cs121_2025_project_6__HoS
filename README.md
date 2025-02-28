@@ -66,8 +66,10 @@ void Student::init(studentString){
 * returns the student's name in the format of Last, First
 ```
 
+getLastFirst(){
 run student names through string stream in the format of lastName ", " firstName
 return string stream string()
+} // end Student::getLastFirst
 
 ```
 
