@@ -20,7 +20,6 @@ Student::~Student(){
 } // end deconstructor
 
 void Student::init(std::string studentString){
-
 	Student::studentString = studentString;
 	std::stringstream ss;
 	std::string street;

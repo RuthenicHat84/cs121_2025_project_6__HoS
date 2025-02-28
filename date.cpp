@@ -31,7 +31,7 @@ void Date::init(std::string dateString){
     ss >> Date::month >> Date::day >> Date::year;
 
     if(ss.fail()){ // fail statement
-        std::cout << "failed to initialize" << std::endl;
+        std::cout << "failed to initialize" << "\n";
     } // end if
 
     ss.clear();
@@ -43,6 +43,6 @@ void Date::printDate(){
                             "April", "May", "June", 
                             "July", "August", "September",
                             "October", "November", "December"}; // Months of the Year
-    std::cout << MoY[Date::month] << " " << Date::day << ", " << Date::year << std::endl;
+    std::cout << MoY[Date::month] << " " << Date::day << ", " << Date::year << "\n";
 
 } // end printDate

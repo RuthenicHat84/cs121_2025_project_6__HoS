@@ -18,8 +18,8 @@ void Address::init(std::string street, std::string city, std::string state, std:
 } // end init constructor
 
 void Address::printAddress(){
-    std::cout << "Street: " << street << std::endl;
-    std::cout << "City: " << city << std::endl;
-    std::cout << "State: " << state << std::endl;
-    std::cout << "Zip: " << zip << std::endl;
+    std::cout << "Street: " << street << "\n";
+    std::cout << "City: " << city << "\n";
+    std::cout << "State: " << state << "\n";
+    std::cout << "Zip: " << zip << "\n";
 } // end printAddress
