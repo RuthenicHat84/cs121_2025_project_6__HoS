@@ -63,16 +63,124 @@ void Student::init(studentString){
 
 ```
 
+* returns the student's name in the format of Last, First
+```
+
+run student names through string stream in the format of lastName ", " firstName
+return string stream string()
+
+```
+
 ## Main()
 * creates UI for users to interact with, and returns the value back to main.
 ```
 
-Menu(){
+PrintMenu(){
 
 create string input
 print list of commands
 get input from user
 return input
 
-}
+} // end PrintMenu
+```
+
+* loads all students from the database file into the program through the Student Class.
+```
+
+void LoadAll(){
+
+    open students.csv
+    for each line in file:
+        create new Student object called "student" with the input of the current line
+        close that student and create new Student object.
+    close file when done
+
+} // end LoadAll
+
+```
+
+* deletes all student data on the heap
+```
+
+void DeleteAll(){
+
+    for every student inside of student vector:
+        delete student
+    delete vector
+
+} // end DeleteAll
+
+```
+
+* prints all students
+```
+
+void PrintAll(){
+
+    for every student in student vector:
+        student.printStudent()
+
+} // end PrintAll
+
+```
+
+* Prints out Students by "Last, First" format.
+```
+void PrintByLastFirst(){
+
+    for every student in student vector:
+        student.getLastFirst()
+
+} // end PrintByLast
+```
+
+* Prompts for a last name, and returns the students sharing that last name. otherwise returns that no student has that last name.
+```
+void Search(){
+
+    make strings input and lastName
+    make int counter count
+    make bool hasFound set to false
+
+    prompt user for input
+
+    for every student in student vector:
+        student.getLastFirst()
+        if the last name contains the input:
+            hasFound = true
+            print counter
+            print student info
+            counter ++
+    if no students have last name:
+        tell user no students have last name
+
+} // end Search
+```
+
+* calls everything else
+```
+
+main(){
+    bool isRunning = true
+    initialize student vector
+    
+    call LoadAll(student vector)
+
+    while isRunning:
+        call PrintMenu()
+        if user types 0:
+            print exit message
+            isRunning = false (quit program)
+        if user types 1:
+            call PrintAll()
+        if user types 2:
+            call PrintByLastFirst
+        if user types 3:
+            call Search()
+        if user types anything else:
+            print error and prompt user to try again
+    delete student vector
+
+} // end Main()
 ```
