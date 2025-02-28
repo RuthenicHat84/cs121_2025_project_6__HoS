@@ -58,20 +58,19 @@ void Student::init(std::string studentString){
 } // end init
 
 void Student::printStudent(){
-	std::cout << Student::firstName << " " << Student::lastName << std::endl;
+	std::cout << Student::firstName << " " << Student::lastName << "\n";
 	address->printAddress();
 	std::cout << "Date of Birth: ";
 	birthday->printDate();
 	std::cout << "Expected Graduation Date: ";
 	gradDate->printDate();
-	std::cout << "Credit Hours: " << Student::credits << std::endl;
+	std::cout << "Credit Hours: " << Student::credits << "\n";
 } // end printStudent
 
 /*
     Getters:
 */
 
-/*
 std::string Student::getLastFirst(){
 	std::stringstream ss;
 	ss.clear();
@@ -80,23 +79,13 @@ std::string Student::getLastFirst(){
 } // end getLastFirst
 
 std::string Student::getFirst(){
-    std::stringstream ss;
-    ss.clear();
-    ss << Student::firstName;
-    return ss.str();
+	return Student::firstName;
 } // end getFirst
 
 std::string Student::getLast(){
-    std::stringstream ss;
-    ss.clear();
-    ss << Student::lastName;
-    return ss.str();
+	return Student::lastName;
 } // end getLast
 
-std::string Student::getCredits(){
-    std::stringstream ss;
-    ss.clear();
-    ss << Student::credits;
-    return ss.str();
+int Student::getCredits(){
+	return Student::credits;
 } // end getCredits
-*/

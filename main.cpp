@@ -6,83 +6,121 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+#include <algorithm>
 
-std::string menu();
-
+std::string PrintMenu();
+void LoadAll(std::vector<Student*>& students);
+void DeleteAll(std::vector<Student*>& students);
+void PrintAll(std::vector<Student*>& students);
+void PrintByLastFirst(std::vector<Student*>& students);
+void Search(std::vector<Student*>& students);
 
 int main() {
     bool isRunning = true;
+    std::vector<Student*> students;
+    LoadAll(students);
 
     while (isRunning) {
-        // Get the input from the menu
-        std::string input = menu();
+        std::string input = PrintMenu();
 
-        // Perform actions based on the input
         if (input == "0") {
-            isRunning = false;  // Exit the loop
+            std::cout << "Thank You for Using the Student Database!" << "\n";
+            isRunning = false;
         } // end if
         else if (input == "1") {
-            std::cout << "You chose 1! Functionality is coming soon!" << std::endl;
+            PrintAll(students);
         } // end if
         else if (input == "2") {
-            std::cout << "You chose 2! Functionality is coming soon!!" << std::endl;
+            PrintByLastFirst(students);
         } // end if
         else if (input == "3") {
-            std::cout << "You chose 3! Functionality is coming soon!!!" << std::endl;
+            Search(students);
         } // end if
-        else{
-            std::cout << "The value chosen does not exist in the list of commands. Please try again!" << std::endl;
+        else {
+            std::cout << "Invalid Input. Please Try Again!" << "\n";
         } // end else
     } // end while
 
+    DeleteAll(students);
     return 0;
-} // end main
+} // end Main
 
-std::string menu() {
+std::string PrintMenu() {
     std::string input;
-    std::cout << std::endl << "Welcome to the Student Database!" << std::endl
-              << "0) Quit" << std::endl
-              << "1) Print All" << std::endl
-              << "2) Print Names" << std::endl
-              << "3) Search Student" << std::endl
+    std::cout << "\n" << "Welcome to the Student Database!" << "\n"
+              << "0) Quit" << "\n"
+              << "1) Print All" << "\n"
+              << "2) Print Names" << "\n"
+              << "3) Search Student" << "\n"
               << "Please Enter a Number (0-3): ";
 
     std::cin >> input;
-    std::cout << std::endl;
+    std::cout << "\n";
 
     return input; 
 } // end menu
 
- /* 
-    std::cout << std::endl;
-    std::cout << "Test Address:" << std::endl << "~~~~~~~~~~~~~~~" << std::endl;
-    Address a;
-    a.init("123 Adoline Rd.", "Bumbletown", "USA", "753402");
-    a.printAddress();
-    
-    std::cout << std::endl << "Test Date: " << std::endl << "~~~~~~~~~~~~~~~" << std::endl;
-    Date b;
-    b.init("09/26/2003");
-    b.printDate();
+void LoadAll(std::vector<Student*>& students){
+    std::ifstream inFile;
+    std::string currentLine;
+    inFile.open("students.csv");
 
-    std::cout << std::endl << "Test Student:" << std::endl << "~~~~~~~~~~~~~~~" << std::endl;
-    std::string studentString = "Danielle,Johnson,32181 Johnson Course Apt. 389,New Jamesside,IN,59379,02/17/2004,05/15/2027,65";
-    Student* student = new Student();
-    student->init(studentString);
-    student->printStudent();
+    while(getline(inFile, currentLine)){
+        
+        Student* student = new Student();
+        student->init(currentLine);
 
+        students.push_back(student);
+    } // end while
 
-    
-    std::cout << std::endl << "Test Student Getters:" << std::endl << "~~~~~~~~~~~~~~~" << std::endl;
-    std::cout << std::endl;
-    student->getLastFirst();
-    std::cout << std::endl;
-    student->getFirst();
-    std::cout << std::endl;
-    student->getLast();
-    std::cout << std::endl;
-    student->getCredits();
-    std::cout << std::endl;
-    
-    delete student;
-*/
+    inFile.close();
+} // end loadAll
+
+void DeleteAll(std::vector<Student*>& students) {
+    for (auto& item : students) {
+        delete item;
+    } // end for
+    students.clear();
+} // end DeleteAll
+
+void PrintAll(std::vector<Student*>& students){
+    for(auto& item: students){
+        item->printStudent();
+        std::cout << "\n";
+    } // end for
+} // end PrintAll
+
+void PrintByLastFirst(std::vector<Student*>& students) {
+    for (auto& item : students) {
+        std::cout << item->getLastFirst() << "\n";
+    } // end for
+} // end PrintByLastFirst
+
+void Search(std::vector<Student*>& students) {
+    std::string search, lastName;
+    std::stringstream ss;
+    int count = 1;
+    bool hasFound = false;
+
+    std::cout << "Enter Last Name of Student: ";
+    std::cin >> search;
+    std::cout << "\n" << "Results for " << search << "\n";
+
+    for (auto& item : students) {
+        ss.clear();
+        ss.str(item->getLastFirst());
+        getline(ss, lastName, ',');
+
+        if (lastName.find(search) != std::string::npos) {
+            hasFound = true;
+            std::cout << count << ">" << "\n";
+            item->printStudent();
+            count++;
+            std::cout << "\n";
+        } // end if
+    } // end for
+
+    if (!hasFound) {
+        std::cout << "No Results Found for " << search << "\n";
+    } // end if
+} // end Search

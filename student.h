@@ -25,7 +25,7 @@ class Student{
         std::string getLastFirst();
         std::string getFirst();
         std::string getLast();
-        std::string getCredits();
+        int getCredits();
 }; // end of Student Class
 
 #endif
